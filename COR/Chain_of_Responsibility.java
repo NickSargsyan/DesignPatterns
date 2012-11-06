@@ -15,7 +15,7 @@ If there is given none from the valid requests, chain ends with alert of unsucce
 
 public class Chain_of_Responsibility
 {
-	public void main(String[] args)
+	public static void main(String[] args)
 	{
 		//Create the Chain of Responsibility
 
@@ -23,10 +23,10 @@ public class Chain_of_Responsibility
 
 		//Trying to handle the request (valid are cheese, meet or banana)
 
-		chain.handle_request(args[1]);
+		chain.handle_request(args[0]);
 	}
 
-	private Handler build_chain()
+	private static Handler build_chain()
 	{
 		//Creating the chain
 
@@ -71,7 +71,9 @@ class Mouse extends Handler
 	{
 		//Trying to handle the request
 
-		if (request == "cheese")
+		String cheese = new String("cheese");
+
+		if (request.equals(cheese))
 		{
 			//Succesful try
 
@@ -81,7 +83,7 @@ class Mouse extends Handler
 		{
 			//Cannot handle request
 
-			System.out.println("Mouse in unable to handle cheese" +  request + "!");
+			System.out.println("Mouse in unable to handle " +  request + "!");
 
 			if (next_handler != null)
 			{
@@ -108,7 +110,9 @@ class Wolve extends Handler
 	{
 		//Trying to handle the request
 
-		if (request == "meet")
+		String meet = new String("meet");
+
+		if (request.equals(meet))
 		{
 			//Succesful try
 
@@ -118,7 +122,7 @@ class Wolve extends Handler
 		{
 			//Cannot handle request
 
-			System.out.println("Wolve in unable to handle cheese" +  request + "!");
+			System.out.println("Wolve in unable to handle " +  request + "!");
 
 			if (next_handler != null)
 			{
@@ -145,7 +149,9 @@ class Monkey extends Handler
 	{
 		//Trying to handle the request
 
-		if (request == "banana")
+		String banana = new String("banana");
+
+		if (request.equals(banana))
 		{
 			//Succesful try
 
@@ -155,7 +161,7 @@ class Monkey extends Handler
 		{
 			//Cannot handle request
 
-			System.out.println("Monkey in unable to handle" +  request + "!");
+			System.out.println("Monkey in unable to handle " +  request + "!");
 
 			if (next_handler != null)
 			{
